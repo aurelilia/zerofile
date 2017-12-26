@@ -1,0 +1,75 @@
+body {
+    background-color: #202020;
+    font-weight: 400;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    color: #FCFEFF;
+    overflow: scroll;
+}
+
+hr {
+    width: 60%;
+    margin-bottom: 2.5%;
+    border-width: 1px;
+    border-color: #FCFEFF;
+}
+
+.name {
+    padding-top: 4%;
+    margin: 0px;
+    font-size: 8em;
+    text-shadow: 3px 3px 0px rgb(233, 12, 12);
+    font-family: "Montserrat";
+    font-weight: 700;
+}
+
+.desc {
+    padding-top: 0%;
+    margin: 0px;
+    padding-bottom: 2.5%;
+    font-size: 1.2em;
+    font-family: "Montserrat";
+}
+
+.files {
+    overflow: visible;
+    padding: 0% 20%;
+}
+.filename {
+    text-align: left;
+}
+.filedate {
+    text-align: right;
+}
+tr:nth-child(even) {
+    background-color: #252525;
+    border: 3px solid red;
+}
+
+@media only screen and (max-device-width:768px) {
+    .file-fuck-css {
+        width: 60%;
+        padding: 0px;
+        font-size: 2em;
+    }
+    .upload-button {
+        width: 40%;
+        padding: 10px;
+        font-size: 2em;
+    }
+    hr {
+        display: none;
+    }
+    .name {
+        font-size: 5em;
+        padding-top: 5%;
+    }
+    .desc {
+        font-size: 1.5em;
+    }
+    .bottom-text {
+        font-size: 1.25em;
+    }
+}

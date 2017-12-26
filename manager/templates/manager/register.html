@@ -1,0 +1,21 @@
+{% load static %}
+<!---->
+<link rel="shortcut icon" href="{% static 'fav.png' %}" type="image/png" />
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet">
+<title>ZeroFile - Simple file host</title>
+<!---->
+<p class="name">ZeroFile</p>
+<p class="desc">Simple file hosting.</p>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Register</button>
+</form>
+<div class="bottom-text">
+    <a href="#" class="warning-h">By uploading, you agree to the Terms and Conditions</a>
+    <a href="#" class="warning-s">By uploading, you agree to the Terms and Conditions</a>
+    <p id="terms">No illegal content allowed. 50MB upload limit. Content may be wiped without notice.</p>
+</div>

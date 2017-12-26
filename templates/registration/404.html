@@ -1,0 +1,32 @@
+{% load static %}
+<!---->
+<link rel="shortcut icon" href="{% static 'fav.png' %}" type="image/png" />
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet">
+<title>ZeroFile - Simple file host</title>
+<!---->
+{% if request.user.is_authenticated %}
+<p class="login">{{ request.user.username }} | <a href="/logout" class="link">Logout</a></p>
+{% else %}
+<p class="login"><a href="/login" class="link">Register (coming soon!)</a> | <a href="/login" class="link">Login</a></p>
+{% endif %}
+
+<p class="name">ZeroFile</p>
+<p class="desc">Simple file hosting.</p>
+<hr>
+<form enctype="multipart/form-data" action="/" method="post" class="form" id="upload-form">
+    {% csrf_token %}
+    <div class="file-fuck-css">
+        <label class="fileinput">
+            <p>Select file...</p>
+            <input id="fileselect" type="file" name="fileselect">
+        </label>
+    </div>
+    <input type="submit" value="Upload" class="upload-button">
+</form>
+<div class="bottom-text">
+    <p>404: File not found! Please check your link.</p>
+</div>
+
+

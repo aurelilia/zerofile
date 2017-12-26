@@ -1,0 +1,116 @@
+body {
+    background-color: #202020;
+    font-weight: 400;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    color: #FCFEFF;
+    overflow:hidden;
+}
+
+hr {
+    width: 60%;
+    margin-bottom: 2.5%;
+    border-width: 1px;
+    border-color: #FCFEFF;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    display: none;
+}
+
+button {
+    width: 60px !important;
+}
+
+input[type=text], input[type=password], button {
+    background-color: #202020;
+    border:solid 2px #FCFEFF;
+    color: #FCFEFF;
+    height: 28px;
+    width: 191px;
+    border-radius: .5em;
+    margin: 0px;
+}
+
+
+.name {
+    padding-top: 14%;
+    margin: 0px;
+    font-size: 8em;
+    text-shadow: 3px 3px 0px rgb(233, 12, 12);
+    font-family: "Montserrat";
+    font-weight: 700;
+}
+
+.desc {
+    padding-top: 0%;
+    margin: 0px;
+    padding-bottom: 2.5%;
+    font-size: 1.2em;
+    font-family: "Montserrat";
+}
+
+
+.bottom-text {
+    padding: 4% 2%;
+}
+
+.warning-s,
+.warning-h,
+.link {
+    color: rgb(82, 82, 82);
+    text-decoration: none;
+}
+
+#terms,
+.warning-s {
+    display: none;
+}
+
+.warning-h:focus+.warning-s {
+    display: inline;
+}
+
+.warning-h:focus {
+    display: none;
+}
+
+.warning-h:focus~#terms {
+    display: block;
+}
+
+@media only screen and (max-device-width: 768px) {
+input[type=text],
+input[type=password],
+button {
+    background-color: #202020;
+    border: solid 2px #FCFEFF;
+    color: #FCFEFF;
+    height: 35px;
+    width: 320px;
+    border-radius: .5em;
+    margin: 0px;
+}
+    hr {
+        display: none;
+    }
+    .name {
+        font-size: 5em;
+        padding-top: 5%;
+    }
+    .desc {
+        font-size: 1.5em;
+    }
+    .bottom-text {
+        font-size: 1.25em;
+    }
+}
