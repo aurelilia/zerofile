@@ -7,9 +7,9 @@
 <title>ZeroFile - Simple file host</title>
 <!---->
 {% if request.user.is_authenticated %}
-<p class="login"><a href="/user/files" class="link">My Files</a> | <a href="/logout" class="link">Logout</a></p>
+<p class="login"><a href="{% url 'manager:viewfiles' %}" class="link">My Files</a> | <a href="/logout" class="link">Logout</a></p>
 {% else %}
-<p class="login"><a href="/user/register" class="link">Register</a> | <a href="/login" class="link">Login</a></p>
+<p class="login"><a href="{% url 'manager:register' %}" class="link">Register</a> | <a href="/login" class="link">Login</a></p>
 {% endif %}
 
 <p class="name">ZeroFile</p>
@@ -17,7 +17,7 @@
 <hr>
 <form enctype="multipart/form-data" action="/" method="post" class="form" id="upload-form" onsubmit="return validateFile();">
     {% csrf_token %}
-    <div class="file-fuck-css" id="filedrop">
+    <div class="file-div" id="filedrop">
         <label class="fileinput">
             <p id="filetext">Select or drop file...</p>
             <input id="fileselect" type="file" name="fileselect" onchange="updateFile();">

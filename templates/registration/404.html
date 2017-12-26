@@ -9,7 +9,7 @@
 {% if request.user.is_authenticated %}
 <p class="login">{{ request.user.username }} | <a href="/logout" class="link">Logout</a></p>
 {% else %}
-<p class="login"><a href="/login" class="link">Register (coming soon!)</a> | <a href="/login" class="link">Login</a></p>
+<p class="login"><a href="{% url 'manager:register' %}" class="link">Register</a> | <a href="/login" class="link">Login</a></p>
 {% endif %}
 
 <p class="name">ZeroFile</p>
@@ -17,7 +17,7 @@
 <hr>
 <form enctype="multipart/form-data" action="/" method="post" class="form" id="upload-form">
     {% csrf_token %}
-    <div class="file-fuck-css">
+    <div class="file-div">
         <label class="fileinput">
             <p>Select file...</p>
             <input id="fileselect" type="file" name="fileselect">
@@ -28,5 +28,3 @@
 <div class="bottom-text">
     <p>404: File not found! Please check your link.</p>
 </div>
-
-
