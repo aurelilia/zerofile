@@ -12,8 +12,8 @@ from zerofile.settings import FILEDIR
 def upload(request):
     """ Processes form answer and stores it in db, returns upload page if answer is empty """
     template = loader.get_template('uploader/index.html')
-    if "fileselect" in request.FILES:
-        template = loader.get_template('uploader/ajax.html')        
+    if 'fileselect' in request.FILES:
+        template = loader.get_template('uploader/ajax.html')
         ufile = request.FILES['fileselect']
 
         if ufile.size < 50000000: # 50 Megabyte
@@ -29,13 +29,8 @@ def upload(request):
                           upload_date=timezone.now(),
                           user=request.user if request.user.is_authenticated else None)
             dbfile.save()
-            return HttpResponse(template.render({'file_id': fileid, "file_name": ufile.name},
+            return HttpResponse(template.render({'file_id': fileid, 'file_name': ufile.name},
                                                 request=request))
-        return HttpResponse(template.render({"file_toobig": True}, request=request))
+        return HttpResponse(template.render({'file_toobig': True}, request=request))
     template = loader.get_template('uploader/index.html')
     return HttpResponse(template.render({}, request=request))
-
-def handle404(request):
-    """ Renders 404 template """
-    template = loader.get_template('uploader/index.html')
-    return HttpResponse(template.render({"file_notfound": True}, request))

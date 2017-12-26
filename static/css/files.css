@@ -39,6 +39,8 @@ hr {
 }
 .filename {
     text-align: left;
+    color: white;
+    text-decoration: none;
 }
 .filedate {
     text-align: right;

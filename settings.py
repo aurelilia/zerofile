@@ -19,19 +19,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 # Put your key into the file 'key' in BASE_DIR, otherwise a default key meant for dev environments
 # is used!!
-try: 
-    with open(os.path.join(BASE_DIR, "key"), 'r') as key:
+try:
+    with open(os.path.join(BASE_DIR, 'key'), 'r') as key:
         SECRET_KEY = key.read()
     DEBUG = False
-    ALLOWED_HOSTS = ["10.0.0.53", "anger.dynu.net", "10.0.0.50"]
+    ALLOWED_HOSTS = ['*']
 except FileNotFoundError:
-    print("WARNING: Key not found! Assuming dev environment, using default key.")
+    print('WARNING: Key not found! Assuming dev environment, using default key.')
     SECRET_KEY = 'wyS5Wi0DeSzj9Lr5Jyfd'
     DEBUG = True
-    ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
-FILEDIR = os.path.join(BASE_DIR, "file/")
+# Directory to put the uploaded files. Dont forget a trailing slash!
+FILEDIR = os.path.join(BASE_DIR, 'file/')
 
 
 # Application definition
@@ -92,7 +93,7 @@ if DEBUG:
         }
     }
 else:
-    with open(os.path.join(BASE_DIR, "database"), 'r') as db:
+    with open(os.path.join(BASE_DIR, 'database'), 'r') as db:
         DATABASES = json.loads(db.read())
 
 
@@ -126,14 +127,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = "/var/www/zerofile/static/"
+STATIC_ROOT = '/var/www/zerofile/static/'
 
 
 # Various settings
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
-X_FRAME_OPTIONS = "DENY"
+X_FRAME_OPTIONS = 'DENY'
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 USE_X_FORWARDED_PORT = True
-

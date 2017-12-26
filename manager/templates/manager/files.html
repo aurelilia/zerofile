@@ -18,7 +18,7 @@
         {% for f in files %}
         
             <tr>
-                <td class=filename><a href="/{{ f.fid }}">{{ f.name }}</a></td>
+                <td class=filename><a href="/{{ f.fid }}" class=filename>{{ f.name }}</a></td>
                 <td class=filedate>{{ f.date }}</td>
            </tr>
         {% endfor %}
