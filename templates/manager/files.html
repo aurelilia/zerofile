@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+
+<head>
+    <link rel="shortcut icon" href="{% static 'fav.png' %}" type="image/png" />
+    <link rel="stylesheet" href="{% static 'css/files.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet">
+    <title>ZeroFile - Files</title>
+</head>
+
+<body>
+    <p class="name">ZeroFile</p>
+    <p class="desc">Your Files</p>
+    <hr>
+    <div class="files">
+        <table width="90%">
+            <tr>
+                <th class=filename>Name</th>
+                <th class=filedate>Upload Date</th>
+            </tr>
+            {% for f in files %}
+
+            <tr>
+                <td class=filename>
+                    <a href="/{{ f.fid }}" class=filename>{{ f.name }}</a>
+                </td>
+                <td class=filedate>{{ f.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>
