@@ -1,0 +1,22 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    width: 90px !important;
+}
+
+input[type=text],
+input[type=password],
+button {
+    background-color: #202020;
+    border: solid 2px #FCFEFF;
+    color: #FCFEFF;
+    height: 28px;
+    width: 191px;
+    border-radius: .5em;
+    margin: 0;
+}

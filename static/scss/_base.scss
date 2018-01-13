@@ -6,7 +6,7 @@ body {
     padding: 0;
     text-align: center;
     color: #FCFEFF;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 hr {
@@ -16,8 +16,14 @@ hr {
     border-color: #FCFEFF;
 }
 
+.bottom-text {
+    padding: 5% 2%;
+    opacity: 1;
+    transition: opacity 0.6s;
+}
+
 .name {
-    padding-top: 4%;
+    padding-top: 11.8%;
     margin: 0;
     font-size: 8em;
     text-shadow: 3px 3px 0 rgb(233, 12, 12);
@@ -33,32 +39,51 @@ hr {
     font-family: "Montserrat";
 }
 
-.files {
-    overflow: visible;
-    padding: 0 20%;
-}
-.filename {
-    text-align: left;
-    color: white;
+.warning-s,
+.warning-h,
+.link {
+    color: rgb(82, 82, 82);
     text-decoration: none;
 }
-.filedate {
-    text-align: right;
+
+.terms,
+#terms,
+.warning-s {
+    display: none;
 }
-tr:nth-child(even) {
-    background-color: #252525;
-    border: 3px solid red;
+
+.warning-h:focus+.warning-s {
+    display: inline;
+}
+
+.warning-h:focus {
+    display: none;
+}
+
+.warning-h:focus~.terms {
+    display: block;
 }
 
 @media only screen and (max-device-width:768px) {
-    .file-fuck-css {
+    input[type=text],
+    input[type=password],
+    button {
+        background-color: #202020;
+        border: solid 2px #FCFEFF;
+        color: #FCFEFF;
+        height: 35px;
+        width: 320px;
+        border-radius: .5em;
+        margin: 0;
+    }
+    .file-div {
         width: 60%;
         padding: 0;
         font-size: 2em;
     }
     .upload-button {
         width: 40%;
-        padding: 10px;
+        padding: 10;
         font-size: 2em;
     }
     hr {
