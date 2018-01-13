@@ -1,9 +1,9 @@
 body {
     background-color: #202020;
     font-weight: 400;
-    border: 0px;
-    margin: 0px;
-    padding: 0px;
+    border: 0;
+    margin: 0;
+    padding: 0;
     text-align: center;
     color: #FCFEFF;
     overflow:hidden;
@@ -38,22 +38,22 @@ input[type=text], input[type=password], button {
     height: 28px;
     width: 191px;
     border-radius: .5em;
-    margin: 0px;
+    margin: 0;
 }
 
 
 .name {
     padding-top: 14%;
-    margin: 0px;
+    margin: 0;
     font-size: 8em;
-    text-shadow: 3px 3px 0px rgb(233, 12, 12);
+    text-shadow: 3px 3px 0 rgb(233, 12, 12);
     font-family: "Montserrat";
     font-weight: 700;
 }
 
 .desc {
     padding-top: 0%;
-    margin: 0px;
+    margin: 0;
     padding-bottom: 2.5%;
     font-size: 1.2em;
     font-family: "Montserrat";
@@ -98,7 +98,7 @@ button {
     height: 35px;
     width: 320px;
     border-radius: .5em;
-    margin: 0px;
+    margin: 0;
 }
     hr {
         display: none;
