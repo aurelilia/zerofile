@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from django.contrib.auth.forms import UserCreationForm
 from zerofile.models import File
 
 
@@ -15,13 +14,3 @@ def viewfiles(request):
         print(files)
         return HttpResponse(template.render({'files': files}, request))
     return HttpResponseRedirect('/')
-
-def register(request):
-    """ Register a new user """
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/')
-    form = UserCreationForm()
-    return render(request, 'manager/register.html', {'form': form})
