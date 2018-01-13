@@ -2,3 +2,5 @@
 migrations
 __pycache__
 key
+*.css
+*.css.map

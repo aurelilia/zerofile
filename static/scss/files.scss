@@ -1,0 +1,25 @@
+@import 'base';
+
+.name {
+    padding-top: 4%;
+}
+
+.files {
+    overflow: visible;
+    padding: 0 20%;
+}
+
+.filename {
+    text-align: left;
+    color: white;
+    text-decoration: none;
+}
+
+.filedate {
+    text-align: right;
+}
+
+tr:nth-child(even) {
+    background-color: #252525;
+    border: 3px solid red;
+}
