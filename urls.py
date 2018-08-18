@@ -20,8 +20,8 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('', include('zerofile.uploader.urls')),
-    path('login/', auth_views.login, name='login'),
-    path('logout/', auth_views.logout, {'template_name': 'uploader/index.html'}, name='logout'),
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='uploader/index.html'), name='logout'),
     path('admin/', admin.site.urls),
     path('user/', include('zerofile.manager.urls')),
     path('accounts/profile/', RedirectView.as_view(url='/', permanent=True)),
