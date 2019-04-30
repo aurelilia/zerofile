@@ -53,8 +53,8 @@ async function changeText(newtext) {
     text.classList.toggle('fade');
 }
 
-document.getElementById('filedrop').addEventListener('drop', function (e) {
+function onDrop(e) {
+    e.preventDefault();
     document.getElementById('filetext').innerHTML = e.dataTransfer.files[0].name;
     uploadAjax(e.dataTransfer.files[0]);
-    return false;
-});
+}

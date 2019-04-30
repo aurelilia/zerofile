@@ -9,7 +9,7 @@
     <title>ZeroFile - Simple file host</title>
 </head>
 
-<body>
+<body ondrop="onDrop(event);" ondragover="event.preventDefault();">
     {% if request.user.is_authenticated %}
     <p class="login">
         <a href="{% url 'manager:viewfiles' %}" class="link">My Files</a> |
@@ -41,15 +41,14 @@
             <a class="link" href="{% url 'downloader:download' file_id %}">{% url 'downloader:download' file_id %}</a>
         </p>
         {% elif file_toobig %}
-        <p>File too big! Only files >50MB are allowed.
-            <p>
-                {% elif file_notfound%}
-                <p>404: File not found! Please check your link.</p>
-                {% else %}
-                <a href="#" class="warning-h">By uploading, you agree to the Terms and Conditions</a>
-                <a href="#" class="warning-s">By uploading, you agree to the Terms and Conditions</a>
-                <p class="terms">No illegal content allowed. 50MB upload limit. Content may be wiped without notice.</p>
-                {% endif %}
+        <p>File too big! Only files >50MB are allowed.</p>
+        {% elif file_notfound %}
+        <p>404: File not found! Please check your link.</p>
+        {% else %}
+        <a href="#" class="warning-h">By uploading, you agree to the Terms and Conditions</a>
+        <a href="#" class="warning-s">By uploading, you agree to the Terms and Conditions</a>
+        <p class="terms">No illegal content allowed. 50MB upload limit. Content may be wiped without notice.</p>
+        {% endif %}
     </div>
     <script src="{% static 'js/index.js' %}"></script>
 </body>
