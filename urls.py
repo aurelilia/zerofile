@@ -27,3 +27,5 @@ urlpatterns = [
     path('accounts/profile/', RedirectView.as_view(url='/', permanent=True)),
     path('<file_id>/', include('zerofile.downloader.urls'))
 ]
+
+import zerofile.autodelete

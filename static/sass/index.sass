@@ -7,13 +7,16 @@
     justify-content: center
     align-items: center
 
-.file-div
-    overflow: hidden
-    background: #fcfeff
-    border-radius: .5em
+.file-div, .timeout-div, .upload-button
     box-shadow: 3px 3px 0 rgb(233, 12, 12)
     color: #202020
-    width: 300
+    background: #fcfeff
+    border-radius: .5em
+    border: 3px solid #fcfeff
+
+.file-div
+    overflow: hidden
+    width: 300px
 
 .fileinput
     overflow: hidden
@@ -30,14 +33,19 @@
     text-align: right
     top: 0
 
-.upload-button
-    background: #fcfeff
-    border-radius: .5em
-    border: 3px solid #fcfeff
+.timeout-div
     margin: 15px
+    padding: 5px 5px
+    width: 200px
+    font-size: 1em
+
+.timeout
+    border: none
+    background: #fcfeff
+    font-size: 1em
+
+.upload-button
     padding: 4px 35px
-    color: #202020
-    box-shadow: 3px 3px 0 rgb(233, 12, 12)
 
 .fade
     padding: 5% 2%
@@ -51,7 +59,7 @@
     padding: 0
     margin: 0 30%
 
-.meter>span
+.meter > span
     display: block
     height: 100%
     border-radius: .5em

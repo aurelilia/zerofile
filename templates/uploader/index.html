@@ -23,16 +23,27 @@
     {% endif %}
 
     <p class="name">ZeroFile</p>
-    <p class="desc">Simple file hosting.</p>
+    <p class="desc">Simple file transfer.</p>
     <hr>
     <form enctype="multipart/form-data" action="/" method="post" class="form" id="upload-form" onsubmit="return validateFile();">
         {% csrf_token %}
-        <div class="file-div" id="filedrop">
+        <div class="file-div">
             <label class="fileinput">
                 <p id="filetext">Select or drop file...</p>
                 <input id="fileselect" type="file" name="fileselect" onchange="updateFile();">
             </label>
         </div>
+
+        <div class="timeout-div">
+            <label class="timeout-label">Expires in 1</label>
+            <select id="timeout" class="timeout">
+                <option value="minute" selected>minute</option>
+                <option value="hour">hour</option>
+                <option value="day">day</option>
+                <option value="week">week</option>
+            </select>
+        </div>
+
         <input type="submit" value="Upload" class="upload-button" id="upload-button">
     </form>
     <div class="bottom-text" id="bottom-text">

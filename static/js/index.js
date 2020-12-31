@@ -1,5 +1,6 @@
 function validateFile() {
     var fileInput = document.getElementById('fileselect');
+    var timeout = document.getElementById('timeout');
     try {
         var size = fileInput.files[0].size;
         if (size > 50000000) {
@@ -10,7 +11,7 @@ function validateFile() {
         alert('Please select a file.');
         return false;
     }
-    uploadAjax(document.getElementById('fileselect').files[0]);
+    uploadAjax(document.getElementById('fileselect').files[0], timeout.value);
     return false;
 }
 
@@ -20,22 +21,23 @@ function updateFile() {
     fileText.innerHTML = fullPath.split(/(\\|\/)/g).pop();
 }
 
-async function uploadAjax(file) {
+async function uploadAjax(file, timeout) {
     document.getElementById('upload-button').disabled = true;
     await changeText('<div class="meter"><span style="width: 0%"></span></div>');
 
     var form = new FormData();
     form.append('fileselect', file);
+    form.append('timeout', timeout);
     form.append('csrfmiddlewaretoken', document.getElementsByName('csrfmiddlewaretoken')[0].value);
     var request = new XMLHttpRequest();
-    request.upload.addEventListener('progress', function (evt) {
+    request.upload.addEventListener('progress', function(evt) {
         if (evt.lengthComputable) {
             var text = document.getElementById('bottom-text');
             var percentComplete = (evt.loaded / evt.total) * 100;
             text.innerHTML = '<div class="meter"><span style="width: VAR%"></span></div>'.replace('VAR', percentComplete);
         }
     }, false);
-    request.onreadystatechange = async function () {
+    request.onreadystatechange = async function() {
         if (this.readyState == 4 && this.status == 200) {
             await changeText(this.responseText);
             document.getElementById('upload-button').disabled = false;
