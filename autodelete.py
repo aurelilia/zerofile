@@ -1,7 +1,6 @@
 import datetime, threading, time
 from django.core.files.storage import default_storage
 from django.utils import timezone
-from django_extensions.management.jobs import BaseJob
 from zerofile.models import File
 from zerofile.settings import DEBUG, FILEDIR
 
