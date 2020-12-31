@@ -1,0 +1,41 @@
+{% load static %}
+<html>
+
+<head>
+    <link rel="shortcut icon" href="{% static 'fav.png' %}" type="image/png" /> 
+    {% block css %}<link rel="stylesheet" href="{% static 'css/index.css' %}">{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet">
+    <title>{% block title %}ZeroFile - Simple file host{% endblock %}</title>
+</head>
+
+<body ondrop="onDrop(event);" ondragover="event.preventDefault();">
+    {% if request.user.is_authenticated %}
+    <header>        
+        <a href="{% url 'manager:viewfiles' %}" class="link">My Files</a> |
+        <a href="/logout" class="link">Logout</a>
+    </header>
+    {% else %}
+    <header>
+        <a href="{% url 'manager:register' %}" class="link">Register</a> |
+        <a href="/login" class="link">Login</a>
+    </header>
+    {% endif %}
+
+    <h1 class="logo">ZeroFile</h1>
+
+    {% block desc %}
+    <h4 class="desc">Simple file transfer.</h4>
+    {% endblock %}
+
+    <hr> 
+    {% block content %} {% endblock %}
+    <footer id="footer">
+        {% block footer %} 
+        <p class="warning">By using this site, you agree to not uploading illegal content</p>
+        {% endblock %}
+    </footer>
+    {% block js %} {% endblock %}
+</body>
+
+</html>

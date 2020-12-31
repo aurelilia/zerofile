@@ -1,30 +1,46 @@
+$background: #202020
+$light-grey: rgb(82, 82, 82)
+$white: #fcfeff
+$red: rgb(233, 12, 12)
+$font: 'Montserrat'
+    
 body
-    background-color: #202020
+    background-color: $background
+    font-family: $font
     font-weight: 400
     border: 0
     margin: 0
     padding: 0
     text-align: center
-    color: #fcfeff
+    color: $white
     overflow: hidden
+
+a
+    color: $red
 
 hr
     width: 60%
     margin-bottom: 2.5%
     border-width: 1px
-    border-color: #fcfeff
+    border-color: $white
 
-.bottom-text
+header
+    position: fixed
+    top: 4px
+    right: 5px
+    color: $light-grey
+    text-decoration: none
+
+footer
     padding: 5% 2%
     opacity: 1
     transition: opacity .6s
 
-.name
+.logo
     padding-top: 11.8%
     margin: 0
     font-size: 8em
-    text-shadow: 3px 3px 0 rgb(233, 12, 12)
-    font-family: 'Montserrat'
+    text-shadow: 3px 3px 0 $red
     font-weight: 700
 
 .desc
@@ -32,36 +48,19 @@ hr
     margin: 0
     padding-bottom: 2.5%
     font-size: 1.2em
-    font-family: 'Montserrat'
+    font-weight: 400
 
-.warning-s,
-.warning-h,
-.link
-    color: rgb(82, 82, 82)
+.warning
+    color: $light-grey
     text-decoration: none
-
-.terms,
-#terms,
-.warning-s
-    display: none
-
-.warning-h:focus+.warning-s
-    display: inline
-
-.warning-h:focus
-    display: none
-
-.warning-h:focus~.terms
-    display: block
-
 
 @media only screen and (max-device-width: 768px)
     input[type=text],
     input[type=password],
     button
-        background-color: #202020
-        border: solid 2px #fcfeff
-        color: #fcfeff
+        background-color: $background
+        border: solid 2px $white
+        color: $white
         height: 35px
         width: 320px
         border-radius: .5em
@@ -80,7 +79,7 @@ hr
     hr
         display: none
 
-    .name
+    .logo
         font-size: 5em
         padding-top: 5%
 

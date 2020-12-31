@@ -48,7 +48,7 @@ async function uploadAjax(file, timeout) {
 }
 
 async function changeText(newtext) {
-    var text = document.getElementById('bottom-text');
+    var text = document.getElementById('footer');
     text.classList.toggle('fade');
     await new Promise(resolve => setTimeout(resolve, 700));
     text.innerHTML = newtext;
