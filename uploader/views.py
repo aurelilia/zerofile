@@ -61,10 +61,10 @@ def get_mime(request, fileid):
     return mime
 
 def get_expiry(time):
-    delta = TIMEDELTAS[time]
-    if delta is not None:
+    try:
+        delta = TIMEDELTAS[time]
         return timezone.now() + delta
-    else:
+    except:
         template = loader.get_template('uploader/invalid_timeout.html')
         raise ReqEx(HttpResponse(template.render({}, request=request)))
 
