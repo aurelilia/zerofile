@@ -11,8 +11,8 @@
             </label>
         </div>
 
-        <div class="timeout-div">
-            <label class="timeout-label">Expires in 1</label>
+        <div class="timeout-div" title="The file will be deleted after this time and won't be downloadable anymore.">
+            <label class="timeout-label" for="timeout">Expires in 1</label>
             <select id="timeout" class="timeout">
                 <option value="minute" selected>minute</option>
                 <option value="hour">hour</option>
@@ -36,6 +36,8 @@
     <p>404: File not found! Please check your link.</p>
     {% else %}
     <p class="warning">By using this site, you agree to not uploading illegal content</p>
+    <p class="migrate-notice">Notice: All files created before expiration was introduced will automatically expire and be deleted on the <b>7th of January 2021</b>.
+        <br>Please plan accordingly and backup any files you want to keep.</p>
     {% endif %}
 {% endblock %}
 

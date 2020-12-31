@@ -9,7 +9,7 @@ class File(models.Model):
     mime = models.CharField('Mimetype', max_length=64)
     upload_date = models.DateTimeField('Upload date')
     user = models.ForeignKey(User, null=True, on_delete=models.DO_NOTHING)
-    expiry = models.DateTimeField('Expires at', default=timezone.datetime(year=2021,month=1,day=31))
+    expiry = models.DateTimeField('Expires at', default=timezone.datetime(year=2021,month=1,day=7))
     deleted = models.BooleanField('Deleted or expired', default=False)
 
     def __str__(self):
