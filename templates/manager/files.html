@@ -4,20 +4,28 @@
 {% block title %}ZeroFile - My Files{% endblock %} 
 {% block css %}<link rel="stylesheet" href="{% static 'css/files.css' %}">{% endblock %}
 
+{% block headerlink %}<a href="{% url 'uploader:upload' %}" class="link">Home</a>{% endblock %}
+
 {% block content %}
     <div class="files">
         <table width="90%">
             <tr>
-                <th class=filename>Name</th>
-                <th class=filedate>Upload Date</th>
+                <th>Name</th>
+                <th>Upload Date</th>
+                <th>Expire Date</th>
+                <th>Expired?</th>
             </tr>
 
             {% for f in files %}
-            <tr>
-                <td class=filename>
+            {% if f.deleted %}<tr class="expired">{% else %}<tr>{% endif %}
+                <td>
                     <a href="/{{ f.fid }}">{{ f.name }}</a>
                 </td>
-                <td class=filedate>{{ f.date }}</td>
+                <td>{{ f.date }}</td>
+                <td>{{ f.expiry }}</td>
+                {% if f.deleted %}<td>Yes</td>
+                {% else %}<td>No</td>
+                {% endif %}
             </tr>
             {% endfor %}
         </table>

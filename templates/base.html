@@ -12,7 +12,7 @@
 <body ondrop="onDrop(event);" ondragover="event.preventDefault();">
     {% if request.user.is_authenticated %}
     <header>        
-        <a href="{% url 'manager:viewfiles' %}" class="link">My Files</a> |
+        {% block headerlink %}<a href="{% url 'manager:viewfiles' %}" class="link">My Files</a>{% endblock %} |
         <a href="/logout" class="link">Logout</a>
     </header>
     {% else %}
