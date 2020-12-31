@@ -3,10 +3,10 @@ A filehost focused on being simple to use and lightweight, using no libraries or
 Uses Django/Python for backend.
 
 ## Installation
-This only depends on django >= 2.0 and python-magic. To install both with pip, do:
+This only depends on django and python-magic. To install them with pip, do:
 
 ```bash
-pip3 install django python-magic
+pip3 install Django==2.2.17 python-magic 
 ```
 
 
