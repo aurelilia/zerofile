@@ -11,16 +11,22 @@ body
     border: 0
     margin: 0
     padding: 0
+    width: 100%
+    height: 90%
     text-align: center
     color: $white
-    overflow: hidden
+    
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
 
 a
     color: $red
 
 hr
     width: 60%
-    margin-bottom: 2.5%
+    margin-bottom: 1.5%
     border-width: 1px
     border-color: $white
 
@@ -32,21 +38,29 @@ header
     text-decoration: none
 
 footer
-    padding: 5% 2%
+    position: fixed
+    bottom: 20px
     opacity: 1
     transition: opacity .6s
 
 .logo
-    padding-top: 11.8%
     margin: 0
     font-size: 8em
     text-shadow: 3px 3px 0 $red
     font-weight: 700
 
-.desc
+.mode
+    color: $white
+    font-size: 2em
+    text-shadow: 1px 1px 0 $red
+    font-weight: 400
     padding-top: 0
     margin: 0
-    padding-bottom: 2.5%
+
+.desc
+    padding-top: 1%
+    margin: 0
+    padding-bottom: 1.5%
     font-size: 1.2em
     font-weight: 400
 
@@ -58,6 +72,18 @@ footer
     font-size: 1.2em
     text-shadow: 1px 1px 0 $light-grey
 
+input[type=text],
+input[type=password],
+button
+    background-color: $white
+    color: $background
+    border: solid 2px $white
+    height: 28px
+    width: 191px
+    border-radius: .5em
+    margin: 0
+    box-shadow: 3px 3px 0 $red
+    padding: 0 10px
 
 @media only screen and (max-device-width: 768px)
     input[type=text],
@@ -79,9 +105,9 @@ footer
     .upload-button
         width: 40%
         padding: 10
-        font-size: 2em
+        font-size: 1em
 
-    hr
+    hr, footer
         display: none
 
     .logo

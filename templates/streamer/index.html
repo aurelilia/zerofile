@@ -1,0 +1,57 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'css/streamer.css' %}">{% endblock %}
+
+{% block mode %}
+<a class="mode" href="{% url 'uploader:upload' %}">switch to host mode</a>
+{% endblock %}
+
+{% block desc %}<h4 class="desc">Simple p2p file streaming.</h4>{% endblock %}
+
+{% block content %}
+    <main>
+    {% if host %}
+        <div id="before-connection">
+            <p>Your Stream ID: <span id="stream-id">......</span></p>
+            <a onclick="copyURL();">
+                <!-- Rather ugly hack to get the text to stay centered... -->
+                <span class="hidden">Copied!</span> 
+                <span class="copy-link">Click here to copy a link for the receiver to the clipboard.</span>
+                <span id="clipboard-copied">Copied!</span>
+            </a>
+            <p>Waiting for connection...</p>
+        </div>
+
+        <div class="nodisplay" id="connected">
+            <p>Connection established!</p>
+
+            <div class="file-div">
+                <label class="fileinput">
+                    <p id="filetext">Select or drop file(s) to stream...</p>
+                    <input id="fileselect" type="file" name="fileselect" onchange="updateFile();">
+                </label>
+            </div>
+
+            <button class="upload-button" id="upload-button" onclick="sendFile();">Send</button>
+
+            <p>Currently uploading: <span id="current">None</span></p>
+            <div id="meter" class="meter"><span style="width: 0%"></span></div>
+        </div>
+    {% else %}
+        <p id="connecting-msg">Connecting to {{ stream_id }}...</p>
+        <div id="meter" class="meter hidden"><span style="width: 0%"></span></div>
+    {% endif %}
+    </main>
+{% endblock %}
+
+{% block footer %}
+    <p class="warning">By using this site, you agree to not uploading illegal content</p>
+    <p class="migrate-notice">Notice: All files created before expiration was introduced will automatically expire and be deleted on the <b>7th of January 2021</b>.
+        <br>Please plan accordingly and backup any files you want to keep.</p>
+{% endblock %}
+
+{% block js %}
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="{% static 'js/streamer.js' %}"></script>
+{% endblock %}

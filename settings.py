@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'zerofile.downloader',
     'zerofile.uploader',
     'zerofile.manager',
+    'zerofile.streamer',
     'zerofile',
 ]
 

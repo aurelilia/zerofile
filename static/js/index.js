@@ -5,7 +5,7 @@ function validateFile() {
     var timeout = document.getElementById('timeout');
     try {
         var size = fileInput.files[0].size;
-        if (size > 50000000) alert('Your file is too big. (50MB max)');
+        if (size > 50000000) alert('Your file is too big. Try stream mode. (50MB max for host)');
         else uploadAjax(fileInput.files[0], timeout.value);
     } catch (e) {
         alert('Please select a file.');

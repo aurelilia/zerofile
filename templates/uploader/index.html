@@ -1,6 +1,10 @@
 {% extends "base.html" %} 
 {% load static %}
 
+{% block mode %}
+<a class="mode" href="{% url 'streamer:stream' %}">switch to stream mode</a>
+{% endblock %}
+
 {% block content %}
     <form enctype="multipart/form-data" action="/" method="post" id="upload-form" onsubmit="return validateFile();">
         {% csrf_token %}
