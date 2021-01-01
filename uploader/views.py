@@ -28,7 +28,7 @@ def upload_file(request):
     validate_size(request, ufile)
     fileid = write_file(ufile)
     mime = get_mime(request, fileid)
-    expiry = get_expiry(request.POST['timeout'])
+    expiry = get_expiry(request, request.POST['timeout'])
 
     dbfile = File(_id=fileid, name=ufile.name,
                 mime=mime,
@@ -60,7 +60,7 @@ def get_mime(request, fileid):
         raise ReqEx(HttpResponse(template.render({}, request=request)))
     return mime
 
-def get_expiry(time):
+def get_expiry(request, time):
     try:
         delta = TIMEDELTAS[time]
         return timezone.now() + delta
