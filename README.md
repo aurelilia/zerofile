@@ -1,5 +1,5 @@
 # zerofile
-A filehost focused on being simple to use and lightweight, using no libraries or frameworks.
+A filehost focused on being simple to use and lightweight, using no libraries or frameworks (except PeerJS when using p2p file streaming).
 Uses Django/Python for backend.
 
 ## Installation
