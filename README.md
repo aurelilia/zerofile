@@ -16,6 +16,12 @@ Additionally, you'll have to create two files in django's BASE_DIR:
 Lastly, run `compile-sass.sh` to compile SASS into CSS. This uses `sassc`, but you can also
 use any other compiler as long as you modify the script accordingly.
 
+## Analytics
+
+By default, ZeroFile embeds the angm.xyz Shynet instance into every page for analytics.
+If you wish to remove it or change to a different analytics provider, change
+it in the bottom of the body of `templates/base.html`. 
+
 ## Deploying
 
 [See the Django Documentation on how to deploy.](https://docs.djangoproject.com/en/3.1/howto/deployment/)
